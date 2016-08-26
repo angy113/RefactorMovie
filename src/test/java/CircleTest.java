@@ -1,28 +1,35 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 /**
  * Created by AngelaValdez on 8/24/2016.
  */
+
+/**
+ * Test for {@link Circle}
+ */
 public class CircleTest {
-    private Circle circle;
+
     private static final double PRECISION = 0.1;
+
+    private Shape circle;
+
     @Before
-    public void createCircle(){
-        double radio = 5;
-        circle = new Circle(5);
+    public void setUp() {
+        final double radio = 5;
+        circle = new Circle(radio);
     }
 
     @Test
-    public void verifyCircleCalculateAreaWhenRadioEqualsTo5(){
-        double expectedResult = 20.7;
-        assertEquals(circle.calculateArea(),expectedResult,PRECISION );
+    public void test_circleCalculateArea_whenRadioEqualsTo5() {
+        final double expectedResult = 78.53;
+        assertEquals(circle.calculateArea(), expectedResult, PRECISION);
     }
 
     @Test
-    public void verifyCircleCalculatePerimeterWhenRadioEqualsTo5(){
-        double expectedResult = 31.4;
-        assertEquals(circle.calculatePerimeter(),expectedResult,PRECISION );
+    public void test_circleCalculatePerimeter_whenRadioEqualsTo5() {
+        final double expectedResult = 31.4;
+        assertEquals(circle.calculatePerimeter(), expectedResult, PRECISION);
     }
 }

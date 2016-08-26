@@ -6,25 +6,32 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by AngelaValdez on 8/24/2016.
  */
+
+/**
+ * Test for {@link Rectangle}
+ */
 public class RectangleTest {
-    private Rectangle rectangle;
+
     private static final double PRECISION = 0.1;
+
+    private Shape rectangle;
+
     @Before
-    public void createRectangle(){
-        double minorSide = 3;
-        double mayorSide = 5;
-        rectangle = new Rectangle(minorSide,mayorSide);
+    public void setUp() {
+        final double minorSide = 3;
+        final double mayorSide = 5;
+        rectangle = new Rectangle(minorSide, mayorSide);
     }
 
     @Test
-    public void verifyRectangleCalculateAreaWhenRadioEqualsTo5(){
-        double expectedResult = 15;
-        assertEquals(rectangle.calculateArea(),expectedResult,PRECISION );
+    public void test_rectangleCalculateArea_whenRadioEqualsTo5() {
+        final double expectedResult = 15;
+        assertEquals(expectedResult, rectangle.calculateArea(), PRECISION);
     }
 
     @Test
-    public void verifyRectangleCalculatePerimeterWhenRadioEqualsTo5(){
-        double expectedResult = 16;
-        assertEquals(rectangle.calculatePerimeter(),expectedResult,PRECISION );
+    public void test_rectangleCalculatePerimeter_whenRadioEqualsTo5() {
+        final double expectedResult = 16;
+        assertEquals(expectedResult, rectangle.calculatePerimeter(), PRECISION);
     }
 }
