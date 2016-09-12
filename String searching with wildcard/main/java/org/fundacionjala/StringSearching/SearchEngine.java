@@ -1,4 +1,4 @@
-package org.fundacionjala.StringSearching;
+package org.fundacionjala.stringSearching;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +15,7 @@ public class SearchEngine {
      * returns -1.
      */
     public static int find(String needle, String haystack) {
-        String regNeedle = "\\Q" + needle.replaceAll("_", "\\\\E.\\\\Q") + "\\E";
+        final String regNeedle = "\\Q" + needle.replaceAll("_", "\\\\E.\\\\Q") + "\\E";
         Matcher m = Pattern.compile(regNeedle).matcher(haystack);
         return m.find() ? m.start() : -1;
     }
