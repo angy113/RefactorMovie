@@ -2,25 +2,12 @@ package org.fundacionjala.movies;
 
 public class ChildrenMovie extends Movie {
 
+    private static final double THIS_AMOUNT = 1.5;
+    private static final double INCREMENT = 1.5;
+    private static final int DAYS_LIMIT = 3;
+
     public ChildrenMovie(String title) {
-        super(title);
+        super(title, THIS_AMOUNT, INCREMENT, DAYS_LIMIT);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public double calculateAmount(int daysRented) {
-        double thisAmount = 1.5;
-        if (daysRented > 3)
-            thisAmount += (daysRented - 3) * 1.5;
-
-        return thisAmount;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public int calculateFrequentRenterPoints(int daysRented) {
-        return 1;
-    }
 }
