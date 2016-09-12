@@ -13,7 +13,7 @@ public class EANValidator {
     public static boolean validate(String number) {
         final int checkSumPosition = 12;
         final int correctCheckSum = obtainCheckSum(number);
-        return number.charAt(checkSumPosition) - 48 == correctCheckSum;
+        return Character.getNumericValue(number.charAt(checkSumPosition)) == correctCheckSum;
     }
 
     /**
@@ -30,15 +30,15 @@ public class EANValidator {
         final int limit = 12;
         return (int) IntStream.range(1, number.length())
                 .limit(limit)
-                .mapToDouble(index -> index % 2 == 0 ? (number.charAt(index - 1) - 48) * 3 : number.charAt(index - 1) - 48)
+                .mapToDouble(index -> index % 2 == 0 ? Character.getNumericValue(number.charAt(index - 1)) * 3 : Character.getNumericValue(number.charAt(index - 1)))
                 .sum();
     }
 
     /**
      * Calculates the real value of the thirteenth position of the
      * number string based in the sum of the twelve digits before.
-     * If the sum is divisible by ten the checksum is 0, otherwise is
-     * ten minus the sum mod 10.
+     * If the sum is divisible by ten the checksum is 0, otherwise
+     * is ten minus the sum mod 10.
      *
      * @param number Is the String of thirteen numbers.
      * @return The result of the checksum (thirteenth digit).
