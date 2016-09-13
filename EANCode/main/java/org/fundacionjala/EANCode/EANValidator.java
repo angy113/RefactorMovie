@@ -11,9 +11,8 @@ public class EANValidator {
      * @return true if the digit is correct, otherwise returns false.
      */
     public static boolean validate(String number) {
-        final int checkSumPosition = 12;
         final int correctCheckSum = obtainCheckSum(number);
-        return Character.getNumericValue(number.charAt(checkSumPosition)) == correctCheckSum;
+        return Character.getNumericValue(number.charAt(number.length()-1)) == correctCheckSum;
     }
 
     /**
@@ -27,9 +26,8 @@ public class EANValidator {
      * @return The total sum of the numbers till the twelve position.
      */
     private static int calculateSum(String number) {
-        final int limit = 12;
         return (int) IntStream.range(1, number.length())
-                .limit(limit)
+                .limit(number.length()-1)
                 .mapToDouble(index -> index % 2 == 0 ? Character.getNumericValue(number.charAt(index - 1)) * 3 : Character.getNumericValue(number.charAt(index - 1)))
                 .sum();
     }
