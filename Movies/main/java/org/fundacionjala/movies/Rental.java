@@ -1,12 +1,12 @@
 package org.fundacionjala.movies;
 
 class Rental {
-    private final Movie _movie;
-    private final int _daysRented;
+    private final Movie movie;
+    private final int daysRented;
 
     public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
     /**
@@ -15,7 +15,7 @@ class Rental {
      * @return The total of the frequent points.
      */
     public int calculateFrequentRenterPoints() {
-        return _movie.calculateFrequentRenterPoints(_daysRented);
+        return movie.calculateFrequentRenterPoints(daysRented);
     }
 
     /**
@@ -24,7 +24,7 @@ class Rental {
      * @return The total amount of the movie rented.
      */
     public double calculateAmount() {
-        return _movie.calculateAmount(_daysRented);
+        return movie.calculateAmount(daysRented);
     }
 
     /**
@@ -33,7 +33,7 @@ class Rental {
      * @return The days of the rent.
      */
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
     /**
@@ -42,6 +42,6 @@ class Rental {
      * @return The movie in the rent.
      */
     public Movie getMovie() {
-        return _movie;
+        return movie;
     }
 }

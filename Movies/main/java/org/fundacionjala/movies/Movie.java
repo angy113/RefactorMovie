@@ -1,19 +1,17 @@
 package org.fundacionjala.movies;
 
 public abstract class Movie {
-
-    private final String _title;
-    private final double _amount;
-    private final double _increment;
-    private final int _limitDays;
-
     private static final int POINT = 1;
+    private final String title;
+    private final double amount;
+    private final double increment;
+    private final int limitDays;
 
     public Movie(String title, double amount, double increment, int limitDays) {
-        _title = title;
-        _amount = amount;
-        _increment = increment;
-        _limitDays = limitDays;
+        this.title = title;
+        this.amount = amount;
+        this.increment = increment;
+        this.limitDays = limitDays;
     }
 
     /**
@@ -21,9 +19,9 @@ public abstract class Movie {
      *
      * @return The total amount to pay for a movie.
      */
-    public double calculateAmount(int daysRented){
-        return daysRented > _limitDays?
-            _amount + ((daysRented - _limitDays) * _increment): _amount;
+    public double calculateAmount(int daysRented) {
+        return daysRented > limitDays ?
+                amount + ((daysRented - limitDays) * increment) : amount;
     }
 
     /**
@@ -31,7 +29,7 @@ public abstract class Movie {
      *
      * @return The total points for a movie.
      */
-    public int calculateFrequentRenterPoints(int daysRented){
+    public int calculateFrequentRenterPoints(int daysRented) {
         return POINT;
     }
 
@@ -41,6 +39,6 @@ public abstract class Movie {
      * @return The title of the movie.
      */
     public String getTitle() {
-        return _title;
+        return title;
     }
 }

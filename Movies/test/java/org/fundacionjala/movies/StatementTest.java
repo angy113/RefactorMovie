@@ -23,14 +23,14 @@ public class StatementTest {
     }
 
     @Test
-    public void test_statementCalculateTheTotalAmountOfAllMoviesAddedByACustomer(){
-        double expectedResult = 8;
+    public void test_calculateTheTotalAmountOfAllMoviesAddedByACustomer(){
+        final double expectedResult = 8;
         assertEquals(expectedResult, statement.calculateTotalAmount(), PRECISION);
     }
 
     @Test
-    public void test_statementCalculateTheTotalFrequentRentalPointsOfAllMoviesAddedByACustomer(){
-        double expectedResult = 3;
+    public void test_calculateTheTotalFrequentRentalPointsOfAllMoviesAddedByACustomer(){
+        final double expectedResult = 3;
         assertEquals(expectedResult, statement.calculateTotalFrequentRenterPoints(), PRECISION);
     }
 

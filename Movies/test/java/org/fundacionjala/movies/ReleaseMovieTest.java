@@ -15,26 +15,26 @@ public class ReleaseMovieTest {
 
     @Before
     public void setUp(){
-        String movieName ="Suicide Squad";
+        final String movieName ="Suicide Squad";
         releaseMovie = new ReleaseMovie(movieName);
     }
 
     @Test
-    public void test_theAmountIsCalculatedInReleaseMovie(){
-        double expectedAmount = 6;
-        int daysOfTheRent = 2;
+    public void test_calculatesTheAmountInReleaseMovie(){
+        final double expectedAmount = 6;
+        final int daysOfTheRent = 2;
         assertEquals(expectedAmount,releaseMovie.calculateAmount(daysOfTheRent), PRECISION);
     }
 
     @Test
-    public void test_theFrequentRentalPointsAreCalculated_whenDaysAreMoreThanOne(){
+    public void test_calculatesTheFrequentRentalPoints_whenDaysAreMoreThanOne(){
         final int expectedResult = 2;
         final int renterDays = 2;
         assertEquals(expectedResult, releaseMovie.calculateFrequentRenterPoints(renterDays));
     }
 
     @Test
-    public void test_theFrequentRentalPointsAreCalculated_whenDaysAreLessThanOne(){
+    public void test_calculatesTheFrequentRentalPoints_whenDaysAreLessThanOne(){
         final int expectedResult = 1;
         final int renterDays = 1;
         assertEquals(expectedResult, releaseMovie.calculateFrequentRenterPoints(renterDays));

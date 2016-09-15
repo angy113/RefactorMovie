@@ -10,11 +10,12 @@ import static org.junit.Assert.assertEquals;
  */
 public class RentalTest {
 
-    public static final double PRECISION = 0.0;
+    private static final double PRECISION = 0.0;
     private Rental rental;
     private Movie movie;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         final String movieName = "ARGO";
         movie = new RegularMovie(movieName);
         final int rentalDays = 5;
@@ -22,26 +23,26 @@ public class RentalTest {
     }
 
     @Test
-    public void test_theDaysRentedAreTheSameSent(){
+    public void test_theDaysRentedAreTheSameSent() {
         final int expectedRentalDays = 5;
-        assertEquals(expectedRentalDays,rental.getDaysRented());
+        assertEquals(expectedRentalDays, rental.getDaysRented());
     }
 
     @Test
-    public void test_theMovieRentedAreTheSameSent(){
+    public void test_theMovieRentedAreTheSameSent() {
         final Movie expectedMovie = movie;
-        assertEquals(expectedMovie,rental.getMovie());
+        assertEquals(expectedMovie, rental.getMovie());
     }
 
     @Test
-    public void test_thatRentalCalculateTheTotalAmountAccordingTheMovieAndDays(){
+    public void test_calculatesTheTotalAmountAccordingTheMovieAndDays() {
         final double expectedResult = 6.5;
-        assertEquals(expectedResult,rental.calculateAmount(), PRECISION);
+        assertEquals(expectedResult, rental.calculateAmount(), PRECISION);
     }
 
     @Test
-    public void test_thatRentalCalculateTheFrequentRentalPointsAccordingTheMovieAndDays(){
+    public void test_calculateTheFrequentRentalPointsAccordingTheMovieAndDays() {
         final int expectedResult = 1;
-        assertEquals(expectedResult,rental.calculateFrequentRenterPoints());
+        assertEquals(expectedResult, rental.calculateFrequentRenterPoints());
     }
 }

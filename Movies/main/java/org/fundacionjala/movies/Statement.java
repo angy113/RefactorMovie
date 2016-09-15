@@ -8,10 +8,11 @@ public class Statement {
     private static final String TAB = "\t";
     private static final String BREAK_LINE = "\n";
     private final Customer customer;
-    private final List<Rental> rentals = new ArrayList<Rental>();
+    private final List<Rental> rentals;
 
     public Statement(Customer customer) {
         this.customer = customer;
+        rentals = new ArrayList<Rental>();
     }
 
     /**

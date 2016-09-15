@@ -15,26 +15,26 @@ public class ChildrenMovieTest {
 
     @Before
     public void setUp(){
-        String movieName = "Tangled";
+        final String movieName = "Tangled";
         childrenMovie = new ChildrenMovie(movieName);
     }
 
     @Test
-    public void test_theAmountIsCalculatedInChildrenMovie_whenRenterDaysAreMoreThanThree(){
-        double expectedAmount = 3;
+    public void test_calculatesTheAmountInChildrenMovie_whenRenterDaysAreMoreThanThree(){
+        final double expectedAmount = 3;
         final int renterDays = 4;
         assertEquals(expectedAmount, childrenMovie.calculateAmount(renterDays), PRECISION);
     }
 
     @Test
-    public void test_theAmountIsCalculatedInChildrenMovie_whenRenterDaysAreLessThanThree(){
-        double expectedAmount = 1.5;
+    public void test_calculatesTheAmountInChildrenMovie_whenRenterDaysAreLessThanThree(){
+        final double expectedAmount = 1.5;
         final int renterDays = 2;
         assertEquals(expectedAmount, childrenMovie.calculateAmount(renterDays), PRECISION);
     }
 
     @Test
-    public void test_theFrequentRenterPointsIsCalculatedInChildrenMovie() {
+    public void test_calculateFrequentRenterPointsInChildrenMovie() {
         final int expectedResult = 1;
         final int renterDays = 2;
         assertEquals(expectedResult, childrenMovie.calculateFrequentRenterPoints(renterDays));
